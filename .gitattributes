@@ -1,0 +1,9 @@
+# Treat torch checkpoint / tensor cache files as binary: disable line-ending
+# conversion (autocrlf) and textual diffing. Without this, git can rewrite
+# CRLF/LF bytes inside these files on checkout/commit, corrupting the
+# torch.save pickle stream (the symptom: torch.load fails after a checkout or
+# a "rollback of a deletion" restores a previously mangled blob).
+*.pt -text
+*.pth -text
+*.npz -text -diff
+*.pkl -text

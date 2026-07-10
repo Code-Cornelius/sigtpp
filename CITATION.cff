@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated paper."
+title: "From Jumps to Signatures: A Generative Method for Temporal Point Processes"
+type: software
+authors:
+  - family-names: "Cariou-Kotlarek"
+    given-names: "Niels"
+    affiliation: "University College London"
+  - family-names: "Lampos"
+    given-names: "Vasileios"
+    affiliation: "University College London"
+abstract: >-
+  Rough path signatures provide a universal feature map for continuous paths and,
+  via the expected signature, a principled characterisation of path distributions.
+  These results do not directly extend to the cadlag paths of temporal point
+  processes (TPPs), limiting the use of signature methods for event sequences.
+  This work introduces the interarrival embedding, a stable (homeomorphic) lift
+  from jump paths to continuous paths of bounded variation, enabling signature
+  methods on discrete event sequences. Building on it, SigTPP is the first
+  signature-based generative model for TPPs, trained with a path-level loss on
+  complete trajectories. The same construction yields three distributional
+  discrepancies on counting-path space for evaluating generative TPP models.
+  Across synthetic and real-world datasets, SigTPP achieves the best average rank
+  across eight complementary metrics and improves against every baseline by at
+  least 19 percent on average.
+keywords:
+  - temporal point processes
+  - generative models
+  - path signatures
+  - rough paths
+  - Wasserstein distance
+license: MIT
+version: "1.0.0"
+date-released: "2026-07-09"
+preferred-citation:
+  type: unpublished
+  title: "From Jumps to Signatures: A Generative Method for Temporal Point Processes"
+  authors:
+    - family-names: "Cariou-Kotlarek"
+      given-names: "Niels"
+    - family-names: "Lampos"
+      given-names: "Vasileios"
+  year: 2026
+  notes: "arXiv:2607.06652."
+  url: "https://arxiv.org/abs/2607.06652"

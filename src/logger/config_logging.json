@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "disable_existing_loggers": true,
+  "formatters": {
+    "simple": {
+      "format": "[%(asctime)s] {%(filename)s:%(lineno)d} - %(levelname)s: %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S"
+    },
+    "colorful": {
+      "()": "src.logger.log_relative_path_formatter.LogRelativePathFormatter",
+      "format": "%(bold_log_color)s[%(asctime)s] %(levelname)-5s ~ %(thin_log_color)s {%(filename)s:%(lineno)d} --- %(log_color)s%(message)s",
+      "datefmt": "%m-%d %H:%M:%S",
+      "log_colors": {
+        "DEBUG": "green",
+        "INFO": "cyan",
+        "WARNING": "yellow",
+        "WARN": "yellow",
+        "ERROR": "red",
+        "CRITICAL": "purple",
+        "CRIT": "purple",
+        "FLAG": "blue"
+      },
+      "secondary_log_colors": {
+        "bold": {
+          "DEBUG": "bold_green",
+          "INFO": "bold_cyan",
+          "WARNING": "bold_yellow",
+          "WARN": "bold_yellow",
+          "ERROR": "bold_red",
+          "CRITICAL": "bold_purple",
+          "CRIT": "bold_purple",
+          "FLAG": "bold_blue"
+        },
+        "thin": {
+          "DEBUG": "thin_green",
+          "INFO": "thin_cyan",
+          "WARNING": "thin_yellow",
+          "WARN": "thin_yellow",
+          "ERROR": "thin_red",
+          "CRITICAL": "thin_purple",
+          "CRIT": "thin_purple",
+          "FLAG": "thin_blue"
+        }
+      },
+      "reset": true,
+      "style": "%"
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "formatter": "colorful",
+      "stream": "ext://sys.stdout"
+    }
+  },
+  "loggers": {
+    "": {
+      "handlers": [
+        "console"
+      ],
+      "propagate": false,
+      "level": "INFO"
+    }
+  }
+}
+

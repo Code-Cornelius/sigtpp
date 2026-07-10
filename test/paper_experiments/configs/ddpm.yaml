@@ -1,0 +1,25 @@
+version: ddpm
+seeds: [ 42 ]
+gpu_id: [ 0 ]
+epochs: 60_001
+patience: 7000
+period_log: 100
+period_plotting_in_logs: 10
+verbose: False
+server_training: True
+diagnostic_only: False
+n_bootstraps: 20
+refine_best_n_bootstraps: 100
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr: [ 1.0e-3, 1.0e-4, 1.0e-5 ]
+  hid_size_rnn: [ 16, 32 ]
+  concentration_factor: [ 1.0 ]
+  num_diff_steps: [ 10, 50, 100 ]
+  batch_size: [ 1024, 4096, 30000 ]

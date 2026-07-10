@@ -1,0 +1,34 @@
+version: sigtpp
+seeds: [ 42,43 ]
+gpu_id: [ 0 ]
+epochs: 501
+patience: 5000
+period_log: 10
+period_plotting_in_logs: 50
+verbose: True
+server_training: False
+# diagnostic_only: True  → skip training, load existing checkpoint and run eval only (re-evaluate a trained model)
+diagnostic_only: False
+# skip_diagnostics: True → run training, then skip the eval/test phase (useful for CI / quick smoke tests)
+skip_diagnostics: False
+n_bootstraps: 1
+refine_best_n_bootstraps: 10
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr_gen: [ 1.0e-2, 1.0e-3 ]
+  # Detector OFF: use sig_degree instead (absolute mode, no detector)
+  # sig_degree: [ 6 ]
+  relative_sig_degree: [ 0 ]
+  concentration_factor: [ 1.0 ]
+  hid_size_rep: [ 8 ]
+  use_teacher_forcing: [ False ]
+  terminal_anchor: [ "free_endpoint" ]
+  detach_cum_channel: [ False ]
+  mark_loss_weight: [ 1.0 ]
+  use_lr_scheduler: [ False ]

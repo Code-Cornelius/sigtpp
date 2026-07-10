@@ -1,0 +1,38 @@
+version: sigtpp
+seeds: [ 42 ]
+gpu_id: [ 0 ]
+epochs: 40_001
+patience: 6000
+period_log: 20
+period_plotting_in_logs: 50
+verbose: False
+server_training: True
+# diagnostic_only: True  → skip training, load existing checkpoint and run eval only (re-evaluate a trained model)
+# skip_diagnostics: True → run training, then skip the eval/test phase (useful for CI / quick smoke tests)
+diagnostic_only: False
+n_bootstraps: 20
+refine_best_n_bootstraps: 100
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+# Per-sig-degree ablation: after the single-winner test pass, select each
+# sig_degree group's validation winner and re-evaluate it on the test split with
+# bootstrap, writing text outputs to results_on_test_txt/ and NPZ vectors to results_on_test_npz/.
+## Runs before pruning, so every degree's checkpoint is still available. Opt-in;
+## adds one bootstrap test pass per distinct sig_degree.
+sig_degree_ablation: True
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr_gen: [ 1.0e-3, 5.0e-4, 1.0e-4 ]
+  sig_degree: [ 8 ]
+  concentration_factor: [ 1.0 ]
+  hid_size_rep: [ 16, 32 ]
+  use_teacher_forcing: [ False, True ]
+  terminal_anchor: [ "free_endpoint", "residual" ]
+  detach_cum_channel: [ False, True ]
+  mark_loss_weight: [ 0.1 ]
+  use_lr_scheduler: [ False ]

@@ -1,0 +1,22 @@
+version: deter
+seeds: [ 42 ]
+gpu_id: [ 4 ]
+epochs: 50
+patience: 10
+period_log: 1
+period_plotting_in_logs: 1
+verbose: False
+server_training: True
+diagnostic_only: False
+n_bootstraps: 20
+refine_best_n_bootstraps: 100
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr_gen: [ 1.0e-2, 1.0e-4 ]
+  hid_size_rep: [ 8, 16, 32 ]

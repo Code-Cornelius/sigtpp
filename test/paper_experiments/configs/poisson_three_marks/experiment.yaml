@@ -1,0 +1,3 @@
+num_marks: 3
+mark_probs: [ 0.7, 0.05, 0.25 ]
+zero_marks: false

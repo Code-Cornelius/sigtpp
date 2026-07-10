@@ -1,0 +1,28 @@
+version: ddpm
+seeds: [ 42 ]
+gpu_id: [ 0 ]
+epochs: 1_101
+patience: 2000
+period_log: 200
+period_plotting_in_logs: 5
+verbose: True
+server_training: False
+# diagnostic_only: True  → skip training, load existing checkpoint and run eval only (re-evaluate a trained model)
+diagnostic_only: False
+# skip_diagnostics: True → run training, then skip the eval/test phase (useful for CI / quick smoke tests)
+skip_diagnostics: False
+n_bootstraps: 5
+refine_best_n_bootstraps: 10
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr: [ 1.0e-3 ]
+  hid_size_rnn: [ 8 ]
+  concentration_factor: [ 1.0 ]
+  num_diff_steps: [ 10 ]
+  batch_size: [ 30000 ]

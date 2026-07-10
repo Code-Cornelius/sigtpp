@@ -1,0 +1,25 @@
+version: wgan
+seeds: [ 42 ]
+gpu_id: [ 2 ]
+epochs: 30001
+patience: 3000
+period_log: 10
+period_plotting_in_logs: 50
+verbose: False
+server_training: True
+diagnostic_only: False
+n_bootstraps: 20
+refine_best_n_bootstraps: 100
+
+# Disk cleanup: keeps only the top-K models/<name>/ dirs by val_norm_score
+# (default 10). Set <= 0 to keep all (needed for recompute_bootstrap.py).
+# keep_top_k_models: 10
+
+output_dir: "test/paper_experiments"
+
+parameter_sets:
+  lr_gen: [ 1.0e-4,1.0e-5, 5.0e-5 ]
+  lr_disc: [ 1.0e-2, 1.0e-3, 1.0e-4 ]
+  hid_size_rnn: [ 16, 32 ]
+  concentration_factor: [ 1.0 ]
+  lipschitz_reg: [ 1.0e-2, 1.0e-3, 1.0e-4 ]

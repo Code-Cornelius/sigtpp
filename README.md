@@ -17,10 +17,10 @@
 
 </div>
 
-This is the research code for the manuscript *From Jumps to Signatures: A Generative Method for Temporal Point
+This is the research code for the paper *From Jumps to Signatures: A Generative Method for Temporal Point
 Processes*
-(Cariou-Kotlarek & Lampos, 2026). The focus is **unconditional** sequence generation, comparing SigTPP against WGAN,
-DDPM (score-based), VAE, and other baselines.
+(Cariou-Kotlarek & Lampos, 2026), accepted at **NeurIPS 2026**. The focus is **unconditional** sequence generation,
+comparing SigTPP against WGAN, DDPM (score-based), VAE, and other baselines.
 
 > **TL;DR:** We introduce a stable embedding that brings rough-path signatures to temporal point processes and use it
 > to build **SigTPP**, a generative model trained with a global trajectory-level loss. We also derive three principled
@@ -183,13 +183,14 @@ GitHub Actions runs the test suite on Python 3.8 and CPU-only `torch==1.12.1+cpu
 
 ## 📝 Citation
 
-If you use this code in research, please cite the associated manuscript:
+If you use this code in research, please cite the associated paper:
 
 ```bibtex
-@unpublished{cariou-kotlarek2026jumps,
+@inproceedings{cariou-kotlarek2026jumps,
   title = {From Jumps to Signatures: A Generative Method for Temporal Point Processes},
   author = {Cariou-Kotlarek, Niels and Lampos, Vasileios},
-  note = {arXiv:2607.06652},
+  booktitle = {Advances in Neural Information Processing Systems},
+  note = {Accepted at NeurIPS 2026},
   eprint = {2607.06652},
   archivePrefix = {arXiv},
   year = {2026}
@@ -197,7 +198,7 @@ If you use this code in research, please cite the associated manuscript:
 ```
 
 Machine-readable citation metadata is provided in [CITATION.cff](CITATION.cff);
-venue and DOI details will be finalised on publication.
+Proceedings details and any DOI will be added on publication.
 
 ## ⚖️ License
 

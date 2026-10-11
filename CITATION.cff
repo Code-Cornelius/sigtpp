@@ -33,7 +33,7 @@ license: MIT
 version: "1.0.0"
 date-released: "2026-07-09"
 preferred-citation:
-  type: unpublished
+  type: conference-paper
   title: "From Jumps to Signatures: A Generative Method for Temporal Point Processes"
   authors:
     - family-names: "Cariou-Kotlarek"
@@ -41,5 +41,7 @@ preferred-citation:
     - family-names: "Lampos"
       given-names: "Vasileios"
   year: 2026
-  notes: "arXiv:2607.06652."
+  status: in-press
+  collection-title: "Advances in Neural Information Processing Systems"
+  notes: "Accepted at NeurIPS 2026. arXiv:2607.06652."
   url: "https://arxiv.org/abs/2607.06652"
